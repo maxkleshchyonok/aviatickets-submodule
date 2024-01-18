@@ -1,5 +1,5 @@
-import { UUIDDto } from "./uuid.dto";
-import { BookingDataDto } from "./booking-data.dto";
+import { UUIDDto } from "src/aviatickets-submodule/libs/types/uuid.dto";
+import { BookingDataDto } from "src/aviatickets-submodule/libs/types/booking-data.dto";
 
 export interface UserDto extends UUIDDto {
     firstName: string;

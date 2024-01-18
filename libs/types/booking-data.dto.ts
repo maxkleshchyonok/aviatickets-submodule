@@ -1,4 +1,4 @@
-import { BookingDto } from "./booking.dto";
+import { BookingDto } from "src/aviatickets-submodule/libs/types/booking.dto";
 
 export interface BookingDataDto {
     count: number;

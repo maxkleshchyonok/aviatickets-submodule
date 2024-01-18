@@ -1,6 +1,6 @@
-import { UserDto } from "./user.dto";
-import { UUIDDto } from "./uuid.dto";
-import { BookingItemDto } from "./booking-item.dto";
+import { UserDto } from "src/aviatickets-submodule/libs/types/user.dto";
+import { UUIDDto } from "src/aviatickets-submodule/libs/types/uuid.dto";
+import { BookingItemDto } from "src/aviatickets-submodule/libs/types/booking-item.dto";
 
 export interface BookingDto extends UUIDDto {
     status: "Payed" | "Booked" | "Cancelled";
