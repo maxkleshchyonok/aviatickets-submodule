@@ -8,8 +8,8 @@ export interface BookingDto extends UUIDDto {
     status: "Payed" | "Booked" | "Cancelled";
     price: number;
     user: UserDto;
-    routeForward: FlightDto[];
-    routeBackward: FlightDto[];
+    toDestinationRoute: FlightDto[];
+    toOriginRoute: FlightDto[];
     passengers: PassengerDto[];
     origin: string;
     destination: string;
