@@ -1,4 +1,4 @@
-import Message from "src/aviatickets-submodule/libs/components/message.comp";
+import Message from "aviatickets-submodule/libs/components/message.comp";
 import { FC } from "react";
 
 interface NoTicketsProps {
