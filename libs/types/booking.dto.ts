@@ -10,6 +10,6 @@ export interface BookingDto extends UUIDDto {
   toDestinationRoute: FlightDto[];
   toOriginRoute: FlightDto[];
   passengers: PassengerDto[];
-  origin: string;
-  destination: string;
+  originCity: string;
+  destinationCity: string;
 }
