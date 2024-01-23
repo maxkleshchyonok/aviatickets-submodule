@@ -1,4 +1,5 @@
 import axios from "axios";
+import { LocalStorageKeys } from "enums/local-storage-keys.enum";
 
 const { REACT_APP_API_URL } = process.env;
 
@@ -8,15 +9,16 @@ const repository = axios.create({
 });
 
 repository.interceptors.request.use((config) => {
-  const access_token = sessionStorage.getItem("access_token");
+  const access_token = localStorage.getItem(LocalStorageKeys.AccessToken);
   const reset_token = localStorage.getItem("reset_token");
-
+  console.log(access_token);
   if (access_token) {
     config.headers.Authorization = `Bearer ${access_token}`;
   }
   if (reset_token) {
     config.headers.Authorization = `Bearer ${reset_token}`;
   }
+  console.log(config.headers);
 
   return config;
 });

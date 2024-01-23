@@ -26,13 +26,18 @@ export const signIn = createAsyncThunk<
   AuthDto,
   SignInForm,
   { rejectValue: ApiError | undefined }
->("sgnIn", async (data, { rejectWithValue }) => {
+>("signIn", async (data, { rejectWithValue }) => {
   try {
     const deviceId = getDeviceId();
     const response = await repository.post("/auth/signin", {
       ...data,
       deviceId,
     });
+    console.log(response.data);
+    localStorage.setItem(
+      LocalStorageKeys.AccessToken,
+      response.data.accessToken
+    );
     return response.data;
   } catch (error) {
     if (axios.isAxiosError<ApiError>(error)) {
@@ -56,6 +61,11 @@ export const signUp = createAsyncThunk<
       ...data,
       deviceId,
     });
+    console.log(response.data);
+    localStorage.setItem(
+      LocalStorageKeys.AccessToken,
+      response.data.accessToken
+    );
     return response.data;
   } catch (error) {
     if (axios.isAxiosError<ApiError>(error)) {
