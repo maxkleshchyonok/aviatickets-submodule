@@ -166,7 +166,7 @@ export const signOut = createAsyncThunk<
   { rejectValue: ApiError | undefined }
 >("signOut", async (_, { rejectWithValue }) => {
   try {
-    await repository.get("/auth/signout");
+    await repository.post("/auth/signout");
     return localStorage.removeItem(LocalStorageKeys.AccessToken);
   } catch (error) {
     if (axios.isAxiosError<ApiError>(error)) {
