@@ -43,7 +43,7 @@ const ForgotPasswordPage = () => {
       enqueueSnackbar("Verification email sent", {
         variant: "success",
       });
-      navigate("/verify");
+      navigate("/auth/verify");
     }
   };
 

@@ -10,7 +10,7 @@ const repository = axios.create({
 
 repository.interceptors.request.use((config) => {
   const access_token = localStorage.getItem(LocalStorageKeys.AccessToken);
-  const reset_token = localStorage.getItem("reset_token");
+  const reset_token = localStorage.getItem(LocalStorageKeys.ResetToken);
   if (access_token) {
     config.headers.Authorization = `Bearer ${access_token}`;
   }

@@ -33,10 +33,13 @@ export const signIn = createAsyncThunk<
       ...data,
       deviceId,
     });
-    console.log(response.data);
     localStorage.setItem(
       LocalStorageKeys.AccessToken,
       response.data.accessToken
+    );
+    localStorage.setItem(
+      LocalStorageKeys.RefreshToken,
+      response.data.refreshToken
     );
     return response.data;
   } catch (error) {
@@ -61,10 +64,13 @@ export const signUp = createAsyncThunk<
       ...data,
       deviceId,
     });
-    console.log(response.data);
     localStorage.setItem(
       LocalStorageKeys.AccessToken,
       response.data.accessToken
+    );
+    localStorage.setItem(
+      LocalStorageKeys.RefreshToken,
+      response.data.refreshToken
     );
     return response.data;
   } catch (error) {
@@ -123,9 +129,9 @@ export const verifyCode = createAsyncThunk<
   { rejectValue: ApiError | undefined }
 >("verifyCode", async (data, { rejectWithValue }) => {
   try {
-    const response = await repository.post("/auth/verify", data);
+    const response = await repository.post("/auth/verify-reset-code", data);
     if (response.data) {
-      localStorage.setItem("reset_token", response.data);
+      localStorage.setItem(LocalStorageKeys.ResetToken, response.data);
       return response.data;
     }
     if (!response.data) {
@@ -167,6 +173,8 @@ export const signOut = createAsyncThunk<
 >("signOut", async (_, { rejectWithValue }) => {
   try {
     await repository.post("/auth/signout");
+    localStorage.removeItem(LocalStorageKeys.RefreshToken);
+    localStorage.removeItem(LocalStorageKeys.ResetToken);
     return localStorage.removeItem(LocalStorageKeys.AccessToken);
   } catch (error) {
     if (axios.isAxiosError<ApiError>(error)) {

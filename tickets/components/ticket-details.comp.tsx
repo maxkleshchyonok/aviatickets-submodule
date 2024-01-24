@@ -6,8 +6,7 @@ import { TicketDtoIdentifier } from "aviatickets-submodule/libs/types/dto-identi
 import { TicketDto } from "../types/ticket.dto";
 import RouteDetails from "./route-details.comp";
 import { useAppSelector } from "hooks/redux.hooks";
-import { authReducer } from "app/auth/store/auth.slice";
-import { authSelector } from "app/auth/store/auth.selector";
+import { authSelector } from "aviatickets-submodule/auth/store/auth.selector";
 
 interface TicketDetailsProps {
   ticket: TicketDto;
@@ -35,7 +34,6 @@ const TicketDetails: FC<TicketDetailsProps> = ({
   onSelectTicketBtnClick,
 }) => {
   const { toDestinationRoute, toOriginRoute } = ticket;
-  const { role } = useAppSelector(authSelector);
 
   return (
     <StyledTicketDetails>
@@ -56,9 +54,6 @@ const TicketDetails: FC<TicketDetailsProps> = ({
           <StyledSelectTicketButton
             onClick={onSelectTicketBtnClick(ticket.id)}
             variant="contained"
-            sx={{
-              display: `${role == "Sales" ? "none" : "block"}`,
-            }}
           >
             Select
           </StyledSelectTicketButton>
