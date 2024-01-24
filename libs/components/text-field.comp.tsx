@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { TextField as MUITextField, TextFieldProps } from "@mui/material";
 import { Control, Controller } from "react-hook-form";
-import { camelize } from "app/utils/camelize";
+import { camelize } from "aviatickets-submodule/libs/utils/camelize";
 
 interface CustomTextFieldProps extends TextFieldProps<"standard"> {
   name: string;

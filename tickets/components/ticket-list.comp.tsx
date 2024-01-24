@@ -1,5 +1,5 @@
 import { Pagination, Stack, StackProps, styled } from "@mui/material";
-import CenteredLoader from "components/centered-loader.comp";
+import CenteredLoader from "aviatickets-submodule/libs/components/centered-loader.comp";
 import { useAppSelector } from "hooks/redux.hooks";
 import { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
 import { calculatePageCount } from "aviatickets-submodule/libs/utils/calculate-page-count.utils";

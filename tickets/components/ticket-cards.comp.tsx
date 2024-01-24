@@ -19,7 +19,7 @@ const TicketCards: FC<TicketCardsProps> = ({ tickets }) => {
   const navigate = useNavigate();
 
   const handleSelectTicketBtnClick = (ticketId: TicketDtoIdentifier) => () => {
-    navigate(BookingsModulePagePaths.CreateBooking + ticketId);
+    // navigate(BookingsModulePagePaths.CreateBooking + ticketId);
   };
 
   return (

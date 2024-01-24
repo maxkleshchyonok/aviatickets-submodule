@@ -1,24 +1,22 @@
 import axios from "axios";
-import { LocalStorageKeys } from "enums/local-storage-keys.enum";
+import { LocalStorageKeys } from "aviatickets-submodule/libs/enums/local-storage-keys.enum";
 
 const { REACT_APP_API_URL } = process.env;
 
 const repository = axios.create({
-  baseURL: REACT_APP_API_URL,
+  baseURL: "http://localhost:3001/api/v1",
   //withCredentials: true,
 });
 
 repository.interceptors.request.use((config) => {
   const access_token = localStorage.getItem(LocalStorageKeys.AccessToken);
   const reset_token = localStorage.getItem("reset_token");
-  console.log(access_token);
   if (access_token) {
     config.headers.Authorization = `Bearer ${access_token}`;
   }
   if (reset_token) {
     config.headers.Authorization = `Bearer ${reset_token}`;
   }
-  console.log(config.headers);
 
   return config;
 });
