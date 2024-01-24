@@ -10,7 +10,7 @@ import {
 import { LocalStorageKeys } from "enums/local-storage-keys.enum";
 
 const initialState: AuthState = {
-  isAuth: !!sessionStorage.getItem(LocalStorageKeys.AccessToken),
+  isAuth: !!localStorage.getItem(LocalStorageKeys.AccessToken),
   isPending: {
     isAuth: false,
   },
