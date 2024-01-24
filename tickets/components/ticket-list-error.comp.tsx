@@ -1,12 +1,9 @@
-import Message from "components/message.comp";
+import Message from "aviatickets-submodule/libs/components/message.comp";
 
 const TicketListError = () => {
   return (
-    <Message
-      title="Failed to get tickets"
-      text="Please try again later"
-    />
-  )
+    <Message title="Failed to get tickets" text="Please try again later" />
+  );
 };
 
 export default TicketListError;

@@ -10,7 +10,7 @@ import {
   TicketSearchFilterYup,
   ticketSearchFilterSchema,
 } from "aviatickets-submodule/ticket-search-filter/validation-schemas/ticket-search-filter.schema";
-import CenteredLoader from "components/centered-loader.comp";
+import CenteredLoader from "aviatickets-submodule/libs/components/centered-loader.comp";
 import { useAppDispatch, useAppSelector } from "hooks/redux.hooks";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";

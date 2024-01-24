@@ -6,6 +6,6 @@ export interface UserDto extends UUIDDto {
   lastName: string;
   email: string;
   roleId: string;
-  roleType: "Admin" | "User" | "Sales";
+  roleType: string;
   bookingData?: BookingDataDto;
 }
